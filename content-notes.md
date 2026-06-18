@@ -70,3 +70,8 @@ Research and benchmark notes from Scottish and UK wedding venue sites:
 - Numbered blocks should be used for grouped service details, routes and planning steps.
 - Do not overuse tickers. They are currently appropriate for Catering, Venue, Full Wedding Package and Menus.
 - Keep the homepage bespoke unless the user specifically asks for homepage-wide changes.
+
+## Image Follow-Ups
+
+- Menus page: replace temporary menu-card background imagery with final supplied menu/category images.
+- Catering page: replace temporary venue recommendation card imagery with final supplied venue images.

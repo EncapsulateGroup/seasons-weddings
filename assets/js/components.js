@@ -112,6 +112,31 @@ const photoStripTemplate = `
   </section>
 `;
 
+const venuePhotoStripTemplate = `
+  <section class="gallery-section compact-gallery" aria-label="Season Quayside wedding venue photography">
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="/assets/img/optimized/venue-wedding-couple-portrait.webp" alt="Couple at Season Quayside wedding venue" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/optimized/venue-wedding-ceremony.webp" alt="Wedding ceremony at Season Quayside" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/optimized/venue-wedding-conservatory.webp" alt="Glass Conservatory at Season Quayside" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/optimized/venue-wedding-reception.webp" alt="Wedding reception at Season Quayside" loading="lazy">
+      </div>
+      <div class="gallery-item tall">
+        <img src="/assets/img/optimized/venue-wedding-guests-portrait.webp" alt="Wedding guests at Season Quayside" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/optimized/venue-wedding-dining.webp" alt="Wedding dining at Season Quayside" loading="lazy">
+      </div>
+    </div>
+  </section>
+`;
+
 const foodStripTemplate = `
   <section class="gallery-section compact-gallery" aria-label="Wedding catering photography">
     <div class="gallery-grid">
@@ -132,6 +157,29 @@ const foodStripTemplate = `
       </div>
       <div class="gallery-item">
         <img src="/assets/img/optimized/food-sharing-plate.webp" alt="Sharing plate for wedding catering" loading="lazy">
+      </div>
+    </div>
+  </section>
+`;
+
+const menuDownloadsTemplate = `
+  <section class="wire-section menu-downloads-section">
+    <div class="section-inner">
+      <div class="included-heading">
+        <div class="stack">
+          <p class="eyebrow">Menu downloads</p>
+          <h2>Browse the wedding menus in <em>more detail</em>.</h2>
+        </div>
+        <p class="lede">Use these sample menus as a starting point for the food style, flow and guest experience you want to create.</p>
+      </div>
+      <div class="menu-download-grid">
+        <a class="menu-download-card menu-download-card-large" style="--menu-card-image: url('/assets/img/optimized/menu-card-conventional.webp')" href="/assets/pdf/Wedding-Conventional-Menus.pdf" aria-label="Open Conventional Menus PDF"><span>Conventional</span><strong>Menus</strong></a>
+        <a class="menu-download-card" style="--menu-card-image: url('/assets/img/optimized/menu-card-evening-snacks.webp')" href="/assets/pdf/Evening-Snacks.pdf" aria-label="Open Evening Snacks PDF"><span>Evening</span><strong>Snacks</strong></a>
+        <a class="menu-download-card" style="--menu-card-image: url('/assets/img/optimized/menu-card-grazing-sharing.webp')" href="/assets/pdf/Family-Sharing-Grazing-Tables.pdf" aria-label="Open Family Sharing and Grazing Tables PDF"><span>Family Sharing</span><strong>Grazing Tables</strong></a>
+        <a class="menu-download-card" style="--menu-card-image: url('/assets/img/optimized/menu-card-hog-roast.webp')" href="/assets/pdf/Hog-Roast.pdf" aria-label="Open Hog Roast PDF"><span>Hog</span><strong>Roast</strong></a>
+        <a class="menu-download-card" style="--menu-card-image: url('/assets/img/optimized/menu-card-kids-food.webp')" href="/assets/pdf/KIDS-FOOD.pdf" aria-label="Open Kids Food PDF"><span>Kids</span><strong>Food</strong></a>
+        <a class="menu-download-card" style="--menu-card-image: url('/assets/img/optimized/menu-card-street-food.webp')" href="/assets/pdf/Street-Food.pdf" aria-label="Open Street Food PDF"><span>Street</span><strong>Food</strong></a>
+        <a class="menu-download-card" style="--menu-card-image: url('/assets/img/optimized/menu-card-vegan.webp')" href="/assets/pdf/Private-Dining-Vegan-Menu.pdf" aria-label="Open Vegan PDF"><span>Vegan</span><strong>Menu</strong></a>
       </div>
     </div>
   </section>
@@ -241,8 +289,16 @@ const renderSharedComponents = () => {
     node.outerHTML = photoStripTemplate;
   });
 
+  document.querySelectorAll("[data-venue-photo-strip]").forEach((node) => {
+    node.outerHTML = venuePhotoStripTemplate;
+  });
+
   document.querySelectorAll("[data-food-strip]").forEach((node) => {
     node.outerHTML = foodStripTemplate;
+  });
+
+  document.querySelectorAll("[data-menu-downloads]").forEach((node) => {
+    node.outerHTML = menuDownloadsTemplate;
   });
 
   document.querySelectorAll("[data-venue-ticker]").forEach((node) => {

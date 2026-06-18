@@ -12,7 +12,7 @@ if (toggle && nav) {
 const currentPath = window.location.pathname.replace(/\/index\.html$/, "/");
 
 document.querySelectorAll("[data-primary-nav] a").forEach((link) => {
-  if (link.classList.contains("brand") || link.classList.contains("header-brochure")) return;
+  if (link.classList.contains("brand") || link.classList.contains("nav-brochure")) return;
 
   const linkPath = new URL(link.href).pathname;
 

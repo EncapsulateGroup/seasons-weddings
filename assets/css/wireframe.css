@@ -490,7 +490,7 @@ p {
 .wire-box.image-catering {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
-    url("/assets/img/optimized/food-plating-hero.webp");
+    url("/assets/img/optimized/menu-card-conventional.webp");
   background-position: center;
   background-size: cover;
 }
@@ -567,6 +567,86 @@ p {
 
 .wire-card:hover::before {
   transform: scaleX(1);
+}
+
+.tasting-faq,
+.planning-faq {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.tasting-faq-section .split-grid,
+.planning-faq-section .split-grid {
+  align-items: start;
+}
+
+.tasting-faq-section .list-check,
+.planning-faq-section .list-check {
+  margin-top: 8px;
+  gap: 18px;
+}
+
+.tasting-faq details,
+.planning-faq details {
+  border: 1px solid var(--line);
+  background: var(--white);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.tasting-faq details[open],
+.planning-faq details[open] {
+  border-color: rgba(154, 124, 63, 0.42);
+  background: var(--page);
+  box-shadow: 0 16px 38px rgba(28, 24, 20, 0.05);
+}
+
+.tasting-faq summary,
+.planning-faq summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 62px;
+  padding: 20px 64px 20px 24px;
+  color: var(--ink);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  line-height: 1.35;
+  cursor: pointer;
+  list-style: none;
+}
+
+.tasting-faq summary::-webkit-details-marker,
+.planning-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.tasting-faq summary::after,
+.planning-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  color: var(--gold);
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.tasting-faq details[open] summary::after,
+.planning-faq details[open] summary::after {
+  content: "–";
+}
+
+.tasting-faq p,
+.planning-faq p {
+  margin: -4px 24px 22px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.85;
 }
 
 .ticker {
@@ -660,6 +740,47 @@ p {
   transform: scale(1.06);
 }
 
+.full-gallery-section {
+  background: var(--white);
+}
+
+.venue-gallery-section {
+  background: var(--page);
+}
+
+.full-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(230px, 18vw);
+  gap: 10px;
+}
+
+.full-gallery-item {
+  min-height: 230px;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background: var(--ink);
+}
+
+.full-gallery-item-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.full-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s ease, opacity 0.65s ease;
+}
+
+.full-gallery-item:hover img {
+  opacity: 0.92;
+  transform: scale(1.045);
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -736,6 +857,10 @@ p {
   background: var(--surface-soft);
 }
 
+.venue-details-section .included-item {
+  background: var(--white);
+}
+
 .included-item::before {
   content: "";
   position: absolute;
@@ -796,6 +921,157 @@ p {
 .included-item a:hover {
   color: var(--ink);
   text-decoration-color: var(--gold);
+}
+
+.menu-downloads-section {
+  background: var(--white);
+}
+
+.menu-download-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.menu-download-card {
+  position: relative;
+  display: flex;
+  min-height: 230px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  padding: 32px 24px;
+  isolation: isolate;
+  color: var(--white);
+  background:
+    linear-gradient(rgba(28, 24, 20, 0.48), rgba(28, 24, 20, 0.48)),
+    var(--menu-card-image, url("/assets/img/optimized/food-prep-detail.webp")) center/cover;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu-download-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(154, 124, 63, 0.24);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.menu-download-card::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.menu-download-card:hover::before,
+.menu-download-card:focus-visible::before,
+.menu-download-card:hover::after,
+.menu-download-card:focus-visible::after {
+  opacity: 1;
+}
+
+.menu-download-card-large {
+  grid-column: span 2;
+}
+
+.menu-download-card span,
+.menu-download-card strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: inherit;
+  font-size: clamp(0.68rem, 0.8vw, 0.82rem);
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.menu-download-card strong {
+  font-weight: 500;
+}
+
+.venue-recommendations-section {
+  background: var(--white);
+}
+
+.section-heading.centered {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.venue-recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.venue-recommendation-card {
+  position: relative;
+  display: grid;
+  min-height: 230px;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 28px;
+  color: var(--white);
+  background:
+    linear-gradient(rgba(28, 24, 20, 0.56), rgba(28, 24, 20, 0.56)),
+    var(--venue-card-image, url("/assets/img/optimized/venue-dining-room.webp")) center/cover;
+  text-align: center;
+  text-decoration: none;
+}
+
+.venue-recommendation-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(154, 124, 63, 0.28);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.venue-recommendation-card::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.venue-recommendation-card:hover::before,
+.venue-recommendation-card:focus-visible::before,
+.venue-recommendation-card:hover::after,
+.venue-recommendation-card:focus-visible::after {
+  opacity: 1;
+}
+
+.venue-recommendation-card-featured {
+  grid-column: 1 / -1;
+  min-height: 285px;
+}
+
+.venue-recommendation-card span {
+  position: relative;
+  z-index: 1;
+  color: inherit;
+  font-size: clamp(0.72rem, 0.9vw, 0.92rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .reviews-carousel {
@@ -1285,6 +1561,88 @@ textarea:focus {
   align-items: start;
 }
 
+.hero-contact-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+  margin: 22px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.hero-contact-details div {
+  display: grid;
+  gap: 6px;
+}
+
+.hero-contact-details dt {
+  color: var(--gold);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hero-contact-details dd {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.05rem, 1.5vw, 1.32rem);
+  line-height: 1.3;
+}
+
+.hero-contact-details a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-contact-details a:hover {
+  color: var(--gold);
+}
+
+.map-section {
+  background: var(--surface);
+}
+
+.map-frame {
+  position: relative;
+  min-height: clamp(340px, 46vw, 560px);
+  overflow: hidden;
+  border: 1px solid var(--gold);
+  background: var(--ink);
+  box-shadow: 0 22px 54px rgba(28, 24, 20, 0.08);
+}
+
+.map-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    linear-gradient(135deg, rgba(154, 124, 63, 0.2), rgba(28, 24, 20, 0.28) 48%, rgba(28, 24, 20, 0.42)),
+    rgba(28, 24, 20, 0.16);
+  mix-blend-mode: multiply;
+}
+
+.map-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.map-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(1) saturate(0.18) contrast(0.9) sepia(0.08);
+}
+
 .field {
   display: grid;
   gap: 7px;
@@ -1539,6 +1897,9 @@ textarea {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
     url("/assets/img/optimized/wedding-confetti.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wire-hero .wire-box::before {
@@ -1559,6 +1920,13 @@ textarea {
     url("/assets/img/optimized/venue-dining-room.webp");
 }
 
+.venue-page .wire-hero .wire-box.image-venue {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
+    url("/assets/img/optimized/venue-gallery-img-9299.webp");
+  background-position: left bottom;
+}
+
 .wire-hero .wire-box.image-quayside {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
@@ -1568,7 +1936,14 @@ textarea {
 .wire-hero .wire-box.image-catering {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
-    url("/assets/img/optimized/food-plating-hero.webp");
+    url("/assets/img/optimized/menu-card-conventional.webp");
+}
+
+.menus-page .wire-hero .wire-box.image-catering {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
+    url("/assets/img/optimized/food-gallery-mar2024-36.webp");
+  background-position: right center;
 }
 
 .wire-hero .wire-box.image-food {
@@ -1583,10 +1958,23 @@ textarea {
     url("/assets/img/optimized/wedding-quayside-couple.webp");
 }
 
+.gallery-page .wire-hero .wire-box.image-couple {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
+    url("/assets/img/optimized/food-gallery-mar2024-62.webp");
+  background-position: right center;
+}
+
 .wire-hero .wire-box.image-bride {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
     url("/assets/img/optimized/wedding-family-moment.webp");
+}
+
+.planning-page .wire-hero .wire-box.image-bride {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
+    url("/assets/img/optimized/venue-table-setting.webp");
 }
 
 .wire-hero .wire-box.image-confetti {
@@ -1595,10 +1983,16 @@ textarea {
     url("/assets/img/optimized/wedding-confetti.webp");
 }
 
+.package-page .wire-hero .wire-box.image-confetti {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
+    url("/assets/img/optimized/venue-wedding-conservatory.webp");
+}
+
 .wire-hero .wire-box.image-dessert {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
-    url("/assets/img/optimized/food-dessert-pour.webp");
+    url("/assets/img/optimized/food-gallery-mar2024-43.webp");
 }
 
 .wire-hero .wire-box::after {
@@ -1777,9 +2171,22 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .menu-download-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .venue-recommendations-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: unset;
+  }
+
+  .full-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(220px, 28vw);
   }
 
   .gallery-item {
@@ -2071,8 +2478,23 @@ textarea {
   .included-grid,
   .gallery-grid,
   .placeholder-strip,
-  .quick-proof-grid {
+  .menu-download-grid,
+  .venue-recommendations-grid,
+  .quick-proof-grid,
+  .hero-contact-details {
     grid-template-columns: 1fr;
+  }
+
+  .menu-download-card,
+  .menu-download-card-large {
+    grid-column: auto;
+    min-height: 180px;
+  }
+
+  .venue-recommendation-card,
+  .venue-recommendation-card-featured {
+    grid-column: auto;
+    min-height: 190px;
   }
 
   .quick-proof-grid {
@@ -2082,6 +2504,15 @@ textarea {
 
   .gallery-grid {
     grid-template-rows: unset;
+  }
+
+  .full-gallery-grid {
+    grid-auto-rows: 210px;
+  }
+
+  .full-gallery-item-large {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .compact-gallery .gallery-grid {
@@ -2162,5 +2593,4 @@ textarea {
   .wire-hero {
     padding-top: 86px;
   }
-}
 }
