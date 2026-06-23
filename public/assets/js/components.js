@@ -284,7 +284,7 @@ const siteFooterTemplate = `
           <h3>Contact</h3>
           <p>72 Commercial St, Leith, Edinburgh EH6 6LX</p>
           <p><a href="tel:+441316037990">01316 037 990</a></p>
-          <p><a href="mailto:info@seasonquayside.co.uk">info@seasonquayside.co.uk</a></p>
+          <p><a href="mailto:info@seasonquayside.co.uk" rel="nofollow">info@seasonquayside.co.uk</a></p>
         </section>
       </div>
       <div class="footer-bottom">

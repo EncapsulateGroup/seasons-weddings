@@ -44,6 +44,8 @@ Do not commit real values for these secrets. Use Cloudflare Pages settings after
 - `public/_redirects`
 - `public/robots.txt`
 - `public/sitemap.xml`
+- `public/favicon.ico`
+- `public/favicon.png`
 - `public/404.html`
 - `public/thank-you/`
 - `functions/api/enquiry.js`
@@ -55,6 +57,9 @@ Do not commit real values for these secrets. Use Cloudflare Pages settings after
 
 - Final production domain still needs confirmation. `public/sitemap.xml` and `public/robots.txt` currently use the known existing host `https://enquiries.seasonquayside.co.uk`.
 - `public/_headers` includes a preview noindex rule for `https://seasons-weddings.pages.dev/*`; update this if the Cloudflare Pages project slug differs.
+- Favicon assets are included at `public/favicon.ico` and `public/favicon.png`, and rendered pages link to them.
+- `/cdn-cgi/image/` is not used in the site files. `public/robots.txt` disallows `/cdn-cgi/` to stop crawlers indexing Cloudflare-managed email-protection endpoints.
+- Public `mailto:` links have `rel="nofollow"` without changing visible email text or destinations.
 - Google Maps is gated behind optional cookie consent on the contact page.
 - Cookie consent stores the optional cookie choice in `localStorage`.
 - No strict Content Security Policy has been added. Consider CSP only after Turnstile, Google Maps and form endpoints are tested on Cloudflare preview.
